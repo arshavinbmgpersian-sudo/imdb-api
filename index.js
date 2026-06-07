@@ -21,40 +21,26 @@ export default {
     const fileInfo = fileDatabase[path];
 
     if (!fileInfo) {
-      return new Response("Error 404 - File Not Found", {
-        status: 404,
-        headers: {
-          "Content-Type": "text/plain; charset=utf-8"
-        }
-      });
+      return new Response("File not found! ", { status: 404 });
     }
 
     try {
-      const upstream = await fetch(fileInfo.source, {
-        redirect: "follow"
-      });
+      const response = await fetch(fileInfo.source);
 
-      if (!upstream.ok) {
-        return new Response("Error 404 - File Not Found", {
-          status: upstream.status
-        });
+      if (!response.ok) {
+        return new Response("Error: file not found.", { status: response.status });
       }
 
-      const headers = new Headers();
-
-headers.set(
-  "Content-Disposition",
-  `attachment; filename="${fileInfo.downloadName}"`
-);
-
-headers.set("Content-Type", "application/octet-stream");
-headers.set("Content-Length", upstream.headers.get("Content-Length") || "");
-headers.set("X-Content-Type-Options", "nosniff");
-      return new Response(upstream.body, {
+      return new Response(response.body, {
         status: 200,
-        headers
+        headers: {
+          "Content-Type": response.headers.get("Content-Type") || "application/octet-stream",
+          "Content-Disposition": attachment; filename="${fileInfo.downloadName}",
+          "Access-Control-Allow-Origin": "*",
+        },
       });
 
+ 
     } catch (err) {
       return new Response("Please Disconnect Vpn!", {
         status: 500
