@@ -47,9 +47,7 @@ export default {
     // فایل پیدا نشد
     if (!fileInfo) {
       return new Response(
-`404 - File Not Found
-
-The requested file does not exist.`,
+`Error 404 - File Not Found`,
         {
           status: 404,
           headers: {
@@ -76,21 +74,7 @@ The requested file does not exist.`,
         );
       }
 
-      return new Response(upstream.body, {
-        status: 200,
-        headers: {
-          "Content-Type":
-            upstream.headers.get("Content-Type") ||
-            "application/octet-stream",
-
-          "Content-Disposition":
-            `attachment; filename="${fileInfo.downloadName}"`,
-
-          "Access-Control-Allow-Origin": "*",
-
-          "Cache-Control": "public, max-age=3600"
-        }
-      });
+  
 
     } catch (err) {
       return new Response(
