@@ -14,7 +14,7 @@ export default {
       },
 
       "hotd/s01e02": {
-        source: "https://example.com/episode2.mkv",
+        source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
         downloadName: "HOTD.S01E02.mkv"
       },
 
