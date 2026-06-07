@@ -57,7 +57,7 @@ export default {
       });
 
     } catch (err) {
-      return new Response("Please Disconnect Vpn!, {
+      return new Response("Please Disconnect Vpn!", {
         status: 500
       });
     }
