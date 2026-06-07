@@ -11,10 +11,10 @@ export default {
 
       "hotd/s01e04": {
         source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
-
+      },
               "hotd/s01e02": {
         source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
-        
+              },
       }
     };
 
