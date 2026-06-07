@@ -32,7 +32,7 @@ export default {
       });
 
       if (!upstream.ok) {
-        return new Response("Source file unavailable", {
+        return new Response("Error 404 - File Not Found", {
           status: upstream.status
         });
       }
@@ -57,7 +57,7 @@ export default {
       });
 
     } catch (err) {
-      return new Response(`Error: ${err.message}`, {
+      return new Response("Please Disconnect Vpn!, {
         status: 500
       });
     }
