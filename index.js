@@ -39,18 +39,14 @@ export default {
 
       const headers = new Headers();
 
-      headers.set(
-        "Content-Type",
-        upstream.headers.get("Content-Type") || "application/octet-stream"
-      );
+headers.set(
+  "Content-Disposition",
+  `attachment; filename="${fileInfo.downloadName}"`
+);
 
-      headers.set(
-        "Content-Disposition",
-        `attachment; filename="${fileInfo.downloadName}"`
-      );
-
-      headers.set("Access-Control-Allow-Origin", "*");
-
+headers.set("Content-Type", "application/octet-stream");
+headers.set("Content-Length", upstream.headers.get("Content-Length") || "");
+headers.set("X-Content-Type-Options", "nosniff");
       return new Response(upstream.body, {
         status: 200,
         headers
