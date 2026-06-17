@@ -4,12 +4,12 @@ export default {
     const path = url.pathname.replace(/^\/+/, "").toLowerCase();
 
     const fileDatabase = {
-      "hotd.E01.mkv": {
-        source: "https://abrehamrahi.ir/o/public/cvgOVJ0C/",
+      "hotd/s01e01": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "HOTD.S01E01.mkv"
       },
       "hotd/s01e02": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
         downloadName: "HOTD.S01E02.mkv"
       },
       "hotd/s01e04": {
@@ -25,27 +25,35 @@ export default {
     }
 
     try {
-      const response = await fetch(fileInfo.source);
+      const upstream = await fetch(fileInfo.source, {
+        redirect: "follow"
+      });
 
-      if (!response.ok) {
-        return new Response("Error: file not found.", { status: response.status });
+      if (!upstream.ok) {
+        return new Response("Error fetching file", { status: upstream.status });
       }
 
-      return new Response(response.body, {
+      const headers = new Headers(upstream.headers);
+
+      // مهم‌ترین بخش برای دانلود مستقیم
+      headers.set(
+        "Content-Disposition",
+        `attachment; filename="${fileInfo.downloadName}"`
+      );
+
+      // جلوگیری از رفتار preview
+      headers.set("Content-Type", "application/octet-stream");
+
+      // امنیت + جلوگیری از مشکلات CORS
+      headers.set("Access-Control-Allow-Origin", "*");
+
+      return new Response(upstream.body, {
         status: 200,
-        headers: {
-          "Content-Type":
-            response.headers.get("Content-Type") || "application/octet-stream",
-
-          // مهم‌ترین بخش برای دانلود مستقیم
-          "Content-Disposition": `attachment; filename="${fileInfo.downloadName}"`,
-
-          "Access-Control-Allow-Origin": "*"
-        }
+        headers
       });
 
     } catch (err) {
-      return new Response("Download failed!", { status: 500 });
+      return new Response("Download failed", { status: 500 });
     }
   }
 };
