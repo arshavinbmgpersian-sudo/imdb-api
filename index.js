@@ -9,7 +9,7 @@ export default {
         downloadName: "HOTD.S01E01.mkv"
       },
       "hotd/s01e02": {
-        source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "HOTD.S01E02.mkv"
       },
       "hotd/s01e04": {
