@@ -13,7 +13,7 @@ export default {
         downloadName: "HOTD.S01E02.mkv"
       },
       "cape.fear/s01e01": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        source: "http://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "HOTD.S01E04.mkv"
       }
     };
