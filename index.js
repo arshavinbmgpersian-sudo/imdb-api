@@ -1,103 +1,48 @@
-const { Telegraf, Markup } = require("telegraf");
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+    const path = url.pathname.replace(/^\/+/, "").toLowerCase();
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+    const fileDatabase = {
+      "hotd/s01e01": {
+        source: "https://abrehamrahi.ir/o/public/cvgOVJ0C/",
+        downloadName: "HOTD.S01E01.mkv"
+      },
 
-// دیتابیس ساده (فعلاً داخل حافظه)
-let movies = [
-  {
-    title: "Interstellar",
-    year: "2014",
-    genre: "Sci-Fi",
-    desc: "A team travels through a wormhole in space.",
-    link: "https://example.com/interstellar"
-  },
-  {
-    title: "Breaking Bad",
-    year: "2008",
-    genre: "Crime",
-    desc: "A chemistry teacher becomes a drug dealer.",
-    link: "https://example.com/breakingbad"
-  }
-];
+      "hotd/s01e04": {
+        source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
+      },
+              "hotd/s01e02": {
+        source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
+              },
+      }
+    };
 
-let users = new Set();
+    const fileInfo = fileDatabase[path];
 
-// START
-bot.start((ctx) => {
-  users.add(ctx.from.id);
+    if (!fileInfo) {
+      return new Response("File not found! ", { status: 404 });
+    }
 
-  return ctx.reply(
-    `سلام ${ctx.from.first_name} 👋\nبه ربات فیلم خوش اومدی`,
-    Markup.keyboard([
-      ["🔍 جستجو فیلم"],
-      ["📊 آمار"]
-    ]).resize()
-  );
-});
+    try {
+      const response = await fetch(fileInfo.source);
 
-// دکمه‌ها
-bot.hears("📊 آمار", (ctx) => {
-  ctx.reply(`👥 کاربران: ${users.size}\n🎬 فیلم‌ها: ${movies.length}`);
-});
+      if (!response.ok) {
+        return new Response("Error: file not found.", { status: response.status });
+      }
 
-bot.hears("🔍 جستجو فیلم", (ctx) => {
-  ctx.reply("اسم فیلم رو بفرست 🎬");
-});
+      return new Response(response.body, {
+        status: 200,
+        headers: {
+          "Content-Type": response.headers.get("Content-Type") || "application/octet-stream",
+          "Content-Disposition": attachment; filename="${fileInfo.downloadName}",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
 
-// جستجو
-bot.on("text", async (ctx) => {
-  const text = ctx.message.text.toLowerCase();
-
-  const results = movies.filter((m) =>
-    m.title.toLowerCase().includes(text)
-  );
-
-  if (results.length === 0) {
-    return ctx.reply("❌ چیزی پیدا نشد");
-  }
-
-  for (const movie of results) {
-    await ctx.reply(
-      `🎬 ${movie.title}
-
-📅 ${movie.year}
-🎭 ${movie.genre}
-
-📝 ${movie.desc}`,
-      Markup.inlineKeyboard([
-        Markup.button.url("⬇️ دانلود", movie.link)
-      ])
-    );
-  }
-});
-
-// پنل ادمین ساده (افزودن فیلم)
-bot.command("add", (ctx) => {
-  const adminId = process.env.ADMIN_ID;
-
-  if (ctx.from.id != adminId) {
-    return ctx.reply("⛔ دسترسی نداری");
-  }
-
-  const data = ctx.message.text.split("|");
-
-  if (data.length < 5) {
-    return ctx.reply(
-      "فرمت:\n/add title|year|genre|desc|link"
-    );
-  }
-
-  movies.push({
-    title: data[0].replace("/add ", ""),
-    year: data[1],
-    genre: data[2],
-    desc: data[3],
-    link: data[4]
-  });
-
-  ctx.reply("✅ اضافه شد");
-});
-
-bot.launch();
-
-console.log("Bot is running...");
+ 
+    } catch (err) {
+      return new Response("Please Disconnect Vpn!", {
+        status: 500
+      });
+    }}
