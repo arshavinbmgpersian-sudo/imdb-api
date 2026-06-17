@@ -6,7 +6,7 @@ export default {
     const fileDatabase = {
       "hotd/s01e01": {
         source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "HOTD.S01E01.mkv"
+        downloadName: "HOTD.E01.mkv"
       },
       "hotd/s01e02": {
         source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
