@@ -1,31 +1,40 @@
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    const path = url.pathname.replace(/^\/+/, "").toLowerCase();
+
+    const path = url.pathname
+      .replace(/^\/+/, "")
+      .replace(/\/+$/, "")
+      .toLowerCase();
 
     const fileDatabase = {
       "hotd/s01e01": {
         source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "HOTD.E01.mkv"
+        downloadName: "HOTD.S01E01.mkv"
       },
+
       "hotd/s01e02": {
         source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
         downloadName: "HOTD.S01E02.mkv"
       },
-      "Cape.Fear/S01E01.480p.SoftSub.SeriexDL.mkv": {
+
+      "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
         source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "Cape.Fear.S01E01.mkv"
       },
+
       "cape.fear/s01e01": {
-        source: "http://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "HOTD.S01E04.mkv"
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
       }
     };
 
     const fileInfo = fileDatabase[path];
 
     if (!fileInfo) {
-      return new Response("File not found!", { status: 404 });
+      return new Response("File not found!", {
+        status: 404
+      });
     }
 
     try {
@@ -34,30 +43,43 @@ export default {
       });
 
       if (!upstream.ok) {
-        return new Response("Error fetching file", { status: upstream.status });
+        return new Response(
+          `Upstream error: ${upstream.status}`,
+          { status: upstream.status }
+        );
       }
 
-      const headers = new Headers(upstream.headers);
+      const headers = new Headers();
 
-      // مهم‌ترین بخش برای دانلود مستقیم
       headers.set(
         "Content-Disposition",
         `attachment; filename="${fileInfo.downloadName}"`
       );
 
-      // جلوگیری از رفتار preview
-      headers.set("Content-Type", "application/octet-stream");
+      headers.set(
+        "Content-Type",
+        upstream.headers.get("Content-Type") ||
+        "application/octet-stream"
+      );
 
-      // امنیت + جلوگیری از مشکلات CORS
+      headers.set(
+        "Content-Length",
+        upstream.headers.get("Content-Length") || ""
+      );
+
       headers.set("Access-Control-Allow-Origin", "*");
+      headers.set("Cache-Control", "public, max-age=3600");
 
       return new Response(upstream.body, {
         status: 200,
         headers
       });
 
-    } catch (err) {
-      return new Response("Download failed", { status: 500 });
+    } catch (error) {
+      return new Response(
+        `Download failed: ${error.message}`,
+        { status: 500 }
+      );
     }
   }
 };
