@@ -13,15 +13,45 @@ export default {
         downloadName: "HOTD.S01E01.mkv"
       },
 
-      "hotd/s01e02": {
-        source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
-        downloadName: "HOTD.S01E02.mkv"
+      "hotd.s01e02.480p.softsub.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5AEaAcgD/",
+        downloadName: "HOTD.S01E02.480p.SoftSub.mkv"
       },
 
       "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
         source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "Cape.Fear.S01E01.mkv"
       },
+      
+            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+            },
+
+            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+            },
+
+            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+      },
+
+            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+      },
+
+           "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+      },
+
+            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+            },
 
       "cape.fear/s01e01": {
         source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
