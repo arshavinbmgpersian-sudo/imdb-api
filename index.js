@@ -12,6 +12,10 @@ export default {
         source: "https://abrehamrahi.ir/o/public/FiJiU0WL/",
         downloadName: "HOTD.S01E02.mkv"
       },
+      "Cape.Fear/S01E01.480p.SoftSub.SeriexDL.mkv": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+      },
       "cape.fear/s01e01": {
         source: "http://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "HOTD.S01E04.mkv"
