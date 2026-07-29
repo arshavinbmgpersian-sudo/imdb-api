@@ -5,7 +5,6 @@ export default {
     const path = url.pathname
       .replace(/^\/+/, "")
       .replace(/\/+$/, "")
-      .toLowerCase();
 
     const fileDatabase = {
       "hotd/s01e01": {
@@ -34,7 +33,9 @@ export default {
       }
     };
 
-    const fileInfo = fileDatabase[path];
+    const fileInfo = Object.entries(fileDatabase).find(
+  ([key]) => key.toLowerCase() === path.toLowerCase()
+)?.[1];
 
     if (!fileInfo) {
       return new Response("File not found!", {
