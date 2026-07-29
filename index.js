@@ -20,7 +20,7 @@ export default {
 
       "x-men.97.s02e07.480p.web-dl.softsub.seriexdl.mkv": {
         source: "https://vip-dl1.myalphadl.com/SvVHaHfUJOFKl4omwcBQnQ/X-Men.97.S02E07.480p.WEB-DL.SoftSub.mkv",
-        downloadName: "X-Men.97.S02E07.480p.WEB-DL.SoftSub.SeriexDL.mkv"
+        downloadName: "X-Men.97.S02E07.480p.WEB-DL.SoftSub.mkv"
       },
 
       "cape.fear/s01e01": {
