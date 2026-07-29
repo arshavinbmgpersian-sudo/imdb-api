@@ -13,9 +13,9 @@ export default {
         downloadName: "HOTD.S01E01.mkv"
       },
 
-      "hotd.s01e02.480p.softsub.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5AEaAcgD/",
-        downloadName: "HOTD.S01E02.480p.SoftSub.mkv"
+      "Series/X-Men.97.S02E07.480p.WEB-DL.SoftSub.SeriexDL.mkv": {
+        source: "https://vip-dl1.myalphadl.com/SvVHaHfUJOFKl4omwcBQnQ/X-Men.97.S02E07.480p.WEB-DL.SoftSub.mkvhttps://vip-dl1.myalphadl.com/SvVHaHfUJOFKl4omwcBQnQ/X-Men.97.S02E07.480p.WEB-DL.SoftSub.mkv",
+        downloadName: "X-Men.97.S02E07.480p.WEB-DL.SoftSub.SeriexDL.mkv"
       },
 
       "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
