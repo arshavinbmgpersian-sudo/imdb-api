@@ -22,38 +22,13 @@ export default {
         source: "https://vip-dl1.myalphadl.com/SvVHaHfUJOFKl4omwcBQnQ/X-Men.97.S02E07.480p.WEB-DL.SoftSub.mkv",
         downloadName: "X-Men.97.S02E07.480p.WEB-DL.SoftSub.SeriexDL.mkv"
       },
-      
-            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "Cape.Fear.S01E01.mkv"
-            },
-
-            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "Cape.Fear.S01E01.mkv"
-            },
-
-            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "Cape.Fear.S01E01.mkv"
-      },
-
-            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "Cape.Fear.S01E01.mkv"
-      },
-
-           "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "Cape.Fear.S01E01.mkv"
-      },
-
-            "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "Cape.Fear.S01E01.mkv"
-            },
 
       "cape.fear/s01e01": {
+        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
+        downloadName: "Cape.Fear.S01E01.mkv"
+      },
+
+      "cape.fear.s01e01.480p.softsub.seriexdl.mkv": {
         source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
         downloadName: "Cape.Fear.S01E01.mkv"
       }
@@ -69,14 +44,17 @@ export default {
 
     try {
       const upstream = await fetch(fileInfo.source, {
-        redirect: "follow"
+        method: "GET",
+        redirect: "follow",
+        headers: {
+          "User-Agent": "Mozilla/5.0"
+        }
       });
 
       if (!upstream.ok) {
-        return new Response(
-          `Upstream error: ${upstream.status}`,
-          { status: upstream.status }
-        );
+        return new Response(`Upstream Error: ${upstream.status}`, {
+          status: upstream.status
+        });
       }
 
       const headers = new Headers();
@@ -89,13 +67,13 @@ export default {
       headers.set(
         "Content-Type",
         upstream.headers.get("Content-Type") ||
-        "application/octet-stream"
+          "application/octet-stream"
       );
 
-      headers.set(
-        "Content-Length",
-        upstream.headers.get("Content-Length") || ""
-      );
+      const contentLength = upstream.headers.get("Content-Length");
+      if (contentLength) {
+        headers.set("Content-Length", contentLength);
+      }
 
       headers.set("Access-Control-Allow-Origin", "*");
       headers.set("Cache-Control", "public, max-age=3600");
@@ -105,11 +83,10 @@ export default {
         headers
       });
 
-    } catch (error) {
-      return new Response(
-        `Download failed: ${error.message}`,
-        { status: 500 }
-      );
+    } catch (err) {
+      return new Response(`Download failed: ${err.message}`, {
+        status: 500
+      });
     }
   }
 };
