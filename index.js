@@ -12,9 +12,9 @@ export default {
         downloadName: "HOTD.S01E01.mkv"
       },
 
-      "series/x-men-97/s02e07/480p/web-dl/Softsub/SeriexDL.mkv": {
-        source: "https://vip-dl1.myalphadl.com/SvVHaHfUJOFKl4omwcBQnQ/X-Men.97.S02E07.480p.WEB-DL.SoftSub.mkv",
-        downloadName: "X-Men.97.S02E07.480p.WEB-DL.SoftSub.SeriexDL.mkv"
+      "Series/X-Men-97.S02E08.480p.WEB-DL.Softsub.SeriexDL.mkv": {
+        source: "https://vip-dl2.myalphadl.com/6tyegdfLaePhsKfCy_SM1w/X-Men.97.S02E08.480p.WEB-DL.SoftSub.mkv",
+        downloadName: "X-Men.97.S02E08.480p.WEB-DL.SoftSub.SeriexDL.mkv"
       },
 
       "x-men.97.s02e07.480p.web-dl.softsub.seriexdl.mkv": {
