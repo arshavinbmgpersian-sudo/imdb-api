@@ -12,8 +12,8 @@ export default {
         downloadName: "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv"
       },
 
-      "Series/X-Men-97.S02E08.480p.WEB-DL.Softsub.SeriexDL.mkv": {
-        source: "https://vip-dl2.myalphadl.com/6tyegdfLaePhsKfCy_SM1w/X-Men.97.S02E08.480p.WEB-DL.SoftSub.mkv",
+      "Lanterns.S01E01.480p.WEB-DL.SeriexDL.mkv": {
+        source: "https://free-dl12.myalphadl.com/lXz6FkNdHMg9pywN5fFH-A/Lanterns.S01E01.480p.WEB.dl.RMT.AlphaDL.mkv",
         downloadName: "X-Men.97.S02E08.480p.WEB-DL.SoftSub.SeriexDL.mkv"
       },
 
