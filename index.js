@@ -8,7 +8,7 @@ export default {
 
     const fileDatabase = {
       "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv": {
-        source: "https://index.linkforge.xyz/0:/findpath?id=1yKTanQ7OjQ_WAZo2LzHj5TuF1gq8qeeg",
+        source: "https://free-dl9.myalphadl.com/qHxNJkM7b6cTOs4XQvzYyg/Lanterns.2026.S01E01.1080p.WEB.h264-cakes.AlphaDL.mkv",
         downloadName: "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv"
       },
 
