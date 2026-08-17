@@ -7,9 +7,9 @@ export default {
       .replace(/\/+$/, "")
 
     const fileDatabase = {
-      "hotd/s01e01": {
-        source: "https://abrehamrahi.ir/o/public/5VjfDkSO/",
-        downloadName: "HOTD.S01E01.mkv"
+      "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv": {
+        source: "https://index.linkforge.xyz/0:/findpath?id=1yKTanQ7OjQ_WAZo2LzHj5TuF1gq8qeeg",
+        downloadName: "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv"
       },
 
       "Series/X-Men-97.S02E08.480p.WEB-DL.Softsub.SeriexDL.mkv": {
