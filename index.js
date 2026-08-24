@@ -7,8 +7,8 @@ export default {
       .replace(/\/+$/, "")
 
     const fileDatabase = {
-      "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv": {
-        source: "https://free-dl9.myalphadl.com/qHxNJkM7b6cTOs4XQvzYyg/Lanterns.2026.S01E01.1080p.WEB.h264-cakes.AlphaDL.mkv",
+      "Lanterns.S01E02.720p.WEB-DL.SeriexDL.mkv": {
+        source: "https://free-dl15.myalphadl.com/IO0_-7jPvXgPCEq3XuRN2g/Lanterns.S01E02.720p.WEB-DL.SeriexDL.mkv",
         downloadName: "Lanterns.S01E01.1080p.FullHD.WEB-DL.SeriexDL.mkv"
       },
 
